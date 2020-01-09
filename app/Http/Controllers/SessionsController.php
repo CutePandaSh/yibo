@@ -29,7 +29,7 @@ class SessionsController extends Controller
 
         if (Auth::attempt($credentials, $request->has('remember')))
         {
-            if (Auth::user()->is_activated){
+            if (Auth::user()->activated){
 
                 //登录成功的操作 
                 session()->flash('success', '欢迎回来！');

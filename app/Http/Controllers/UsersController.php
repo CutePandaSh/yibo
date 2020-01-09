@@ -113,13 +113,11 @@ class UsersController extends Controller
     {
        $view = 'emails.confirm';
        $data = compact('user');
-       $from = 'summer@example.com';
-       $name = 'summer';
        $to = $user->email;
        $subject = '欢迎你注册Yibo App 应用，请确认你的邮箱！';
 
-        Mail::send($view, $data, function($message) use ($from, $name, $to, $subject){
-            $message->from($from, $name)->to($to)->subject($subject);
+        Mail::send($view, $data, function($message) use ($to, $subject){
+            $message->to($to)->subject($subject);
         });
     }
 }
